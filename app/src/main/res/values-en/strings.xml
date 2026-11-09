@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="standard_title">Standard</string>
+    <string name="history_title">History</string>
+    <string name="memory_title">Memory</string>
+    <string name="no_history">There\'s no history yet</string>
+    <string name="no_memory">There\'s nothing saved in memory</string>
+    <string name="clear_history">Clear all history</string>
+
+    <string name="memory_clear">Clear all memory</string>
+    <string name="memory_recall">Recall memory</string>
+    <string name="memory_add">Memory add</string>
+    <string name="memory_subtract">Memory subtract</string>
+    <string name="memory_store">Memory store</string>
+    <string name="memory_view">Memory view</string>
+
+    <string name="error_divide_by_zero">Cannot divide by zero</string>
+    <string name="error_invalid_input">Invalid input</string>
+    <string name="error_overflow">Overflow</string>
+
+    <string name="btn_decimal">.</string>
+
+    <!-- Accessibility descriptions -->
+    <string name="cd_percent">Percent</string>
+    <string name="cd_clear_entry">Clear entry</string>
+    <string name="cd_clear">Clear all</string>
+    <string name="cd_backspace">Backspace</string>
+    <string name="cd_reciprocal">Reciprocal 1 over x</string>
+    <string name="cd_square">Square</string>
+    <string name="cd_sqrt">Square root</string>
+    <string name="cd_divide">Divide</string>
+    <string name="cd_multiply">Multiply</string>
+    <string name="cd_subtract">Minus</string>
+    <string name="cd_add">Plus</string>
+    <string name="cd_equals">Equals</string>
+    <string name="cd_negate">Toggle sign</string>
+    <string name="cd_decimal_separator">Decimal point</string>
+    <string name="cd_history_button">Open history</string>
+    <string name="cd_close_history">Close history</string>
+    <string name="cd_trash">Clear history</string>
+    <string name="cd_memory_status">Memory status</string>
+    <string name="cd_menu">Menu</string>
+</resources>
