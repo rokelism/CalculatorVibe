@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Skaičiuotuvas</string>
+    <string name="standard_title">Standartinis</string>
+    <string name="history_title">Istorija</string>
+    <string name="memory_title">Atmintis</string>
+    <string name="no_history">Istorijos dar nėra</string>
+    <string name="no_memory">Atmintyje nieko nėra</string>
+    <string name="clear_history">Išvalyti visą istoriją</string>
+
+    <string name="memory_clear">Išvalyti visą atmintį</string>
+    <string name="memory_recall">Atkurti iš atminties</string>
+    <string name="memory_add">Pridėti prie atminties</string>
+    <string name="memory_subtract">Atimti iš atminties</string>
+    <string name="memory_store">Išsaugoti atmintyje</string>
+    <string name="memory_view">Atminties peržiūra</string>
+
+    <string name="error_divide_by_zero">Negalima dalyti iš nulio</string>
+    <string name="error_invalid_input">Neleistina įvestis</string>
+    <string name="error_overflow">Perpilda</string>
+
+    <string name="btn_decimal">,</string>
+
+    <!-- Accessibility descriptions -->
+    <string name="cd_percent">Procentai</string>
+    <string name="cd_clear_entry">Išvalyti dabartinę įvestį</string>
+    <string name="cd_clear">Išvalyti viską</string>
+    <string name="cd_backspace">Trinti paskutinį ženklą</string>
+    <string name="cd_reciprocal">Vienas padalintas iš x</string>
+    <string name="cd_square">Kelti kvadratu</string>
+    <string name="cd_sqrt">Kvadratinė šaknis</string>
+    <string name="cd_divide">Dalyba</string>
+    <string name="cd_multiply">Daugyba</string>
+    <string name="cd_subtract">Atimtis</string>
+    <string name="cd_add">Sudėtis</string>
+    <string name="cd_equals">Lygu</string>
+    <string name="cd_negate">Keisti ženklą</string>
+    <string name="cd_decimal_separator">Dešimtainis kablelis</string>
+    <string name="cd_history_button">Atidaryti skaičiavimų istoriją</string>
+    <string name="cd_close_history">Uždaryti istoriją</string>
+    <string name="cd_trash">Išvalyti istoriją</string>
+    <string name="cd_memory_status">Atminties būsena</string>
+    <string name="cd_menu">Meniu</string>
+</resources>

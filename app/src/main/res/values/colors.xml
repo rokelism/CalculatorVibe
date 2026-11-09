@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="calc_background">#F3F3F3</color>
+    <color name="calc_display_bg">#F3F3F3</color>
+    <color name="calc_expression_text">#616161</color>
+    <color name="calc_result_text">#1A1A1A</color>
+
+    <color name="calc_btn_num_bg">#FFFFFF</color>
+    <color name="calc_btn_num_text">#1A1A1A</color>
+
+    <color name="calc_btn_op_bg">#F7F7F7</color>
+    <color name="calc_btn_op_text">#1A1A1A</color>
+
+    <color name="calc_btn_equals_bg">#0067C0</color>
+    <color name="calc_btn_equals_text">#FFFFFF</color>
+
+    <color name="calc_mem_text_enabled">#1A1A1A</color>
+    <color name="calc_mem_text_disabled">#9E9E9E</color>
+
+    <color name="calc_history_panel_bg">#F9F9F9</color>
+    <color name="calc_history_item_bg">#FFFFFF</color>
+    <color name="calc_divider">#E0E0E0</color>
+    <color name="calc_btn_ripple">#E0E0E0</color>
+    <color name="calc_error_text">#D32F2F</color>
+</resources>
