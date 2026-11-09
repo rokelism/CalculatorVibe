@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/calc_background">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_menu"
+            android:src="@drawable/ic_menu" />
+
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/standard_title"
+            android:textColor="@color/calc_result_text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnHistoryToggle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_history_button"
+            android:src="@drawable/ic_history" />
+    </LinearLayout>
+
+    <!-- Display Area -->
+    <LinearLayout
+        android:id="@+id/displayContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="110dp"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <TextView
+            android:id="@+id/tvExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:maxLines="2"
+            android:textColor="@color/calc_expression_text"
+            android:textSize="15sp"
+            tools:text="12 + 8 =" />
+
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="start"
+            android:gravity="end"
+            android:maxLines="1"
+            android:textColor="@color/calc_result_text"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="46sp"
+            app:autoSizeMinTextSize="22sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/calc_error_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="Negalima dalyti iš nulio" />
+    </LinearLayout>
+
+    <!-- Memory Row -->
+    <LinearLayout
+        android:id="@+id/memoryRow"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/displayContainer">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMC"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_clear"
+            android:enabled="false"
+            android:text="MC" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMR"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_recall"
+            android:enabled="false"
+            android:text="MR" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMPlus"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_add"
+            android:text="M+" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMMinus"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_subtract"
+            android:text="M−" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMS"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_store"
+            android:text="MS" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMView"
+            style="@style/CalcButton.Memory"
+            android:layout_weight="1"
+            android:contentDescription="@string/memory_view"
+            android:text="M˅" />
+    </LinearLayout>
+
+    <!-- Keypad Grid (6 Rows x 4 Columns) -->
+    <LinearLayout
+        android:id="@+id/keypadContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/memoryRow">
+
+        <!-- Row 1: %, CE, C, Backspace -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPercent"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_percent"
+                android:text="%" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCE"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_clear_entry"
+                android:text="CE" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnC"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_clear"
+                android:text="C" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackspace"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_backspace"
+                app:icon="@drawable/ic_backspace"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@color/calc_btn_op_text" />
+        </LinearLayout>
+
+        <!-- Row 2: 1/x, x², √x, ÷ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReciprocal"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_reciprocal"
+                android:text="¹/x" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSquare"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_square"
+                android:text="x²" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSqrt"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_sqrt"
+                android:text="²√x" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDivide"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_divide"
+                android:text="÷" />
+        </LinearLayout>
+
+        <!-- Row 3: 7, 8, 9, × -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn7"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="7" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn8"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="8" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn9"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="9" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMultiply"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_multiply"
+                android:text="×" />
+        </LinearLayout>
+
+        <!-- Row 4: 4, 5, 6, − -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn4"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn5"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn6"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubtract"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_subtract"
+                android:text="−" />
+        </LinearLayout>
+
+        <!-- Row 5: 1, 2, 3, + -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn1"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn2"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn3"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_add"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Row 6: ±, 0, dešimtainis skirtukas, = -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggleSign"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_negate"
+                android:text="±" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn0"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDecimal"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_decimal_separator"
+                android:text="@string/btn_decimal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEquals"
+                style="@style/CalcButton.Equals"
+                android:layout_weight="1"
+                android:contentDescription="@string/cd_equals"
+                android:text="=" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- History Overlay Panel (Portrait) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/historyPanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/calc_history_panel_bg"
+        android:elevation="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/historyHeader"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/history_title"
+                android:textColor="@color/calc_result_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnCloseHistory"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd_close_history"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/historyDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/calc_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/historyHeader" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHistory"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/historyDivider" />
+
+        <TextView
+            android:id="@+id/tvEmptyHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_history"
+            android:textColor="@color/calc_expression_text"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/historyDivider" />
+
+        <ImageButton
+            android:id="@+id/btnClearHistory"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_trash"
+            android:src="@drawable/ic_trash"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
