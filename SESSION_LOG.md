@@ -597,7 +597,7 @@ still nothing?
 i dont get what you want me to do, can you not just post it in a new repo?
 ````
 
-Pagal paskutinį nurodymą ankstesnis planas papildyti `rokelism/WordCounter` pakeistas: projektas parengtas atskiros naujos `CalculatorVibe` saugyklos šaknyje. Ankstesnis WordCounter papildymo commit nebuvo įkeltas. GitHub kūrimo puslapis atidarytas naršyklėje; šiuo metu laukiama vartotojo GitHub prisijungimo tame puslapyje, kad AI galėtų atlikti publikavimą.
+Pagal paskutinį nurodymą ankstesnis planas papildyti `rokelism/WordCounter` pakeistas: projektas parengtas atskiros naujos `CalculatorVibe` saugyklos šaknyje. Ankstesnis WordCounter papildymo commit nebuvo įkeltas. GitHub puslapis atidarytas naršyklėje. Vartotojas prisijungė ir pats sukūrė `CalculatorVibe`; AI į šią saugyklą įkėlė parengtą projektą.
 
 ### Vartotojo pasirinkta nauja saugykla
 
@@ -607,14 +607,19 @@ Vartotojas pranešė:
 
 Naršyklėje patikrinta nauja tuščia https://github.com/rokelism/CalculatorVibe saugykla. Projektą joje publikuoja AI per GitHub failų įkėlimo sąsają; tai aiškiai atskiriama nuo ankstesnio nesėkmingo git push bandymo.
 
-### GitHub būsena
+### Galutinis GitHub publikavimo rezultatas
 
-- Failai paruošti įkėlimui, tačiau publikavimas dar nepatvirtintas.
-- GitHub prisijungimas ir sėkmingas push dar turi būti užbaigti. Ši versija nepatvirtina, kad projektas jau paskelbtas.
-
-- Vietiniame tos pačios GitHub saugyklos darbo egzemplioriuje parengtas commit `9be1771a995f75996fd5d97354e6f11eed5d8a52` (`feat: add MIPT Android calculator project`).
-- Push bandymas nepavyko: šiai sesijai nepasiekiamas išsaugotas GitHub prisijungimas. Prieigos raktai nerodyti ir neišsaugoti. Reikia užbaigti GitHub prijungimą ir po tikro sėkmingo push atnaujinti šį žurnalą.
+- Data: 2026-11-09.
+- Saugyklą sukūrė vartotojas: [rokelism/CalculatorVibe](https://github.com/rokelism/CalculatorVibe). Saugykla vieša; šis viešumas patikrintas GitHub puslapyje ir nekeistas.
+- AI įkėlė visus **58 projekto failus** į `main` šakos šaknį: programėlės šaltinius, Android resursus, testus, Gradle konfigūraciją ir wrapper, README, CODE_REVIEW, šį sesijų žurnalą bei ekrano nuotraukas.
+- Visų programėlės failų publikavimo commit: [`2fedada60387d3cb4f5ead2b42b9d78dd102b9e7`](https://github.com/rokelism/CalculatorVibe/commit/2fedada60387d3cb4f5ead2b42b9d78dd102b9e7).
+- Publikavimo patikra: iš GitHub parsisiųsta saugykla ir perskaitytas nuotolinės `main` šakos Git archyvas. Patikrintas tikslus 58 failų sąrašas ir kiekvieno failo turinys, lyginant su parengtu projektu; **trūkstamų, papildomų ar besiskiriančių failų nėra** (teksto failams leidžiami vien eilučių pabaigos skirtumai).
+- Įkėlimas atliktas **per GitHub naršyklės failų įkėlimo sąsają**, kuri sukūrė tikrus commit pagrindinėje šakoje. Tiesioginė `git push` komanda į šią naują saugyklą agento aplinkoje nebuvo vykdoma sėkmingai, nes jai nebuvo prieinamas išsaugotas prisijungimas. Šis techninis skirtumas užfiksuotas atvirai.
+- Ankstesnis planas papildyti WordCounter atšauktas pagal naujausią vartotojo nurodymą. **WordCounter saugykla nepakeista.**
+- README per publikavimą pataisyta teksto koduotė ir patikslintas Gradle Java 25 kriterijus, atskiriant jį nuo programėlės Java 17 suderinamumo. Pridėta Linux/macOS wrapper paleidimo teisių pastaba. Programėlės kodas publikavimo metu nekeistas.
+- Šis papildytas žurnalas ir README įkeliami atskiru galutiniu dokumentacijos commit. Jo identifikatorius pateikiamas GitHub istorijoje ir baigiamame atsakyme; žurnale nereikia nurodyti jo paties commit.
+- Ankstesnis 28/28 testų rezultatas priklauso kodo peržiūros sesijai ir papildomai patikrintas iš išlikusios XML ataskaitos. Šiame publikavimo etape testai iš naujo nevykdyti, nes programėlės šaltiniai nepakeisti.
 
 ## Pateikimas į Moodle
 
-Pateikti šį `SESSION_LOG.md` ir tikrą programėlės GitHub nuorodą. Prieš pateikimą patikrinti, kad projekto aplankas ir dokumentai pasiekiami vertintojui ir kad GitHub publikavimo būsena aukščiau pažymėta kaip sėkminga.
+Pateikti šį `SESSION_LOG.md` ir [GitHub projekto nuorodą](https://github.com/rokelism/CalculatorVibe). README bei CODE_REVIEW yra tos pačios viešos saugyklos šaknyje. Prieš pateikimą galima atidaryti nuorodą ir įsitikinti, kad vertintojui pasiekiami failai.

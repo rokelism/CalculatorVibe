@@ -27,11 +27,11 @@
 
 ## 2. Paleidimas ir aplinkos reikalavimai
 
-Projektas sukonfigūruotas pagal naujausius Android ekosistemos standartus (Android 16 / SDK 37 suderinamumas).
+Projekto `compileSdk` ir `targetSdk` yra 37; mažiausia palaikoma Android API versija – 24.
 
 ### Reikalingos priemonės
-* **Java Development Kit (JDK):** Versija 17 (rekomenduojama `OpenJDK 17`).
-* **Android Studio:** Naujausia stabili versija (Android Studio Ladybug / Meerkat ar naujesnė, palaikanti Android Gradle Plugin 9.4+).
+* **Java:** programėlės Java suderinamumas nustatytas į 17. Gradle paleidimo JVM projekte atskirai nurodyta kaip **Java 25** faile `gradle/gradle-daemon-jvm.properties` (`toolchainVersion=25`); pasirūpinkite, kad šis JDK būtų pasiekiamas arba galėtų būti parsiųstas pagal projekto konfigūraciją.
+* **Android Studio:** versija, palaikanti projekte naudojamus Android Gradle Plugin 9.4.1, Gradle 9.6.0 ir SDK 37.
 * **Android SDK:**
   * `minSdk`: **24** (Android 7.0 Nougat ar naujesnė)
   * `compileSdk`: **37**
@@ -44,10 +44,10 @@ Projektas sukonfigūruotas pagal naujausius Android ekosistemos standartus (Andr
 ### Žingsniai paleidimui per Android Studio
 1. **Projekto atidarymas:**
    * Paleiskite „Android Studio“.
-   * Meniu pasirinkite **File -> Open...** ir nurodykite projekto šakninį aplanką `MiptCalculator`.
+   * Meniu pasirinkite **File -> Open...** ir nurodykite atsisiųsto projekto šakninį aplanką, kuriame yra `settings.gradle.kts` (klonuojant šią saugyklą jis paprastai vadinasi `CalculatorVibe`).
 2. **Gradle sinchronizavimas:**
    * Atidarius projektą, „Android Studio“ automatiškai pradės sinchronizavimą. Jei ne, viršutiniame dešiniajame kampe paspauskite **Sync Project with Gradle Files**.
-   * Įsitikinkite, kad nustatymuose pasirinktas JDK 17: **Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Gradle JDK**.
+    * Patikrinkite **Settings -> Build, Execution, Deployment -> Build Tools -> Gradle -> Gradle JDK**. Šiame projekte Gradle JVM kriterijus nurodo Java 25 faile `gradle/gradle-daemon-jvm.properties`; Java 17 yra programėlės kodo suderinamumo lygis.
 3. **Vienetinių testų paleidimas:**
    * Prieš paleidžiant programėlę rekomenduojama įvykdyti automatinius testus:
      * Paspauskite dešiniuoju pelės klavišu ant `app/src/test/java` aplanko ir pasirinkite **Run 'Tests in 'engine''**, arba
@@ -70,6 +70,8 @@ Projektas sukonfigūruotas pagal naujausius Android ekosistemos standartus (Andr
      ```
 
 ---
+
+Linux ir macOS aplinkoje po atsisiuntimo per GitHub failų įkėlimo sąsają, prieš vykdydami `./gradlew`, prireikus suteikite paleidimo teisę: `chmod +x gradlew`.
 
 ## 3. Naudojimas ir funkcionalumas
 
